@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,6 +17,7 @@
       text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
     }
     .jump span {
+      position: relative;
       display: inline-block;
       transition: transform 0.2s;
       cursor:url('http://csscursor.info/source/santahand.png'), default;
@@ -30,7 +31,12 @@
   <h2 class="jump">SPREADS!</h2>
 
 <script>
-  
+  const spreads = document.querySelector('.jump');
+  spreads.innerHTML = spreadPop(spreads.textContent);
+
+  function spreadPop(word) {
+    return [...word].map(letter => `<span>${letter}</span>`).join('');
+  }
 </script>
 </body>
 </html>
